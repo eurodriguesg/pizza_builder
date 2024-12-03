@@ -1,3 +1,4 @@
+// src/models/Pizza.model.ts
 export class Pizza {
   size: string = "";  // Inicialização padrão
   dough: string = ""; // Inicialização padrão
