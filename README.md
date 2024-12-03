@@ -135,7 +135,7 @@ Cria uma pizza personalizada.
    npm run dev
    ```
 
-4. O servidor estará disponível em `http://localhost:<PORTA>`.
+4. O servidor estará disponível em `http://localhost:31063` ou na próxima porta disponível que o servidor encontrar.
 
 ---
 
