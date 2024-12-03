@@ -30,16 +30,16 @@ export class PizzaDirector {
   makeMargheritaPizza(): void {
 
     this.buildPizza(
-      "grande", 
-      "fina", 
+      "Grande", 
+      "Fina", 
       ["Queijo", "Tomate", "Manjericão"]
     );
   }
   
   makePepperoniPizza(): void {
     this.buildPizza(
-      "média", 
-      "tradicional", 
+      "Média", 
+      "Tradicional", 
       ["Queijo", "Pepperoni"]
     );
   }

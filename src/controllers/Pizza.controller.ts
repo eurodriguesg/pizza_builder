@@ -5,6 +5,24 @@ import { PepperoniPizzaBuilder }  from "../builders/PepperoniPizzaBuilder";
 import { PizzaDirector }          from "../directors/PizzaDirector";
 
 export class PizzaController {
+
+  static async createCustomPizza(req: Request, res: Response): Promise<void> {
+
+    // console.log("[SRV-PIZZA 🟡] Recebido pedido de criação de pizza customizada:", req.body);
+    const { size, dough, toppings } = req.body;
+
+    const builder = new MargheritaPizzaBuilder();
+    builder.reset()
+      .setSize(size)
+      .setDough(dough);
+
+    toppings.forEach((topping: string) => builder.addTopping(topping));
+
+    const pizza = builder.getResult();
+    res.status(200).json({ pizza: pizza.display() });
+  }
+  
+
   static async createPredefinedPizza(req: Request, res: Response): Promise<void> {
 
     const { type } = req.params;
@@ -37,18 +55,4 @@ export class PizzaController {
     res.status(200).json({ pizza: pizza.display() });
   }
 
-  static async createCustomPizza(req: Request, res: Response): Promise<void> {
-    
-    const { size, dough, toppings } = req.body;
-
-    const builder = new MargheritaPizzaBuilder();
-    builder.reset()
-      .setSize(size)
-      .setDough(dough);
-
-    toppings.forEach((topping: string) => builder.addTopping(topping));
-
-    const pizza = builder.getResult();
-    res.status(200).json({ pizza: pizza.display() });
-  }
 }

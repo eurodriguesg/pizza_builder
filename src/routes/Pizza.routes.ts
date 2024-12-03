@@ -4,7 +4,7 @@ import { PizzaController } from "../controllers/Pizza.controller";
 
 const router = Router();
 
-router.post("/:type",  PizzaController.createPredefinedPizza);
 router.post("/custom", PizzaController.createCustomPizza);
+router.post("/:type",  PizzaController.createPredefinedPizza);
 
 export default router;

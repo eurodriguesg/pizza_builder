@@ -1,9 +1,7 @@
-// src/builders/MargheritaPizzaBuilder.ts
 import { Pizza }        from "../models/Pizza.model";
 import { PizzaBuilder } from "./PizzaBuilder";
 
 export class MargheritaPizzaBuilder implements PizzaBuilder {
-
   private pizza: Pizza;
 
   constructor() {
@@ -11,31 +9,29 @@ export class MargheritaPizzaBuilder implements PizzaBuilder {
   }
 
   reset(): this {
-
     this.pizza = new Pizza();
     return this;
-
   }
 
   setSize(size: string): this {
+    const validSizes = ["pequena", "média", "grande"]; // Lista em minúsculas
 
-    const validSizes = ["pequena", "média", "grande"];
-    if (!validSizes.includes(size)) {
+    if (!validSizes.includes(size.toLowerCase())) {
       throw new Error(`Tamanho inválido: ${size}`);
     }
 
-    this.pizza.size = size;
+    this.pizza.size = size.charAt(0).toUpperCase() + size.slice(1).toLowerCase(); // Formata a string
     return this;
-  }  
+  }
 
   setDough(dough: string): this {
+    const validDoughs = ["tradicional", "fina", "recheada"]; // Lista em minúsculas
 
-    const validDoughs = ["tradicional", "fina", "recheada"];
-    if (!validDoughs.includes(dough)) {
+    if (!validDoughs.includes(dough.toLowerCase())) {
       throw new Error(`Tipo de massa inválido: ${dough}`);
     }
-    
-    this.pizza.dough = dough;
+
+    this.pizza.dough = dough.charAt(0).toUpperCase() + dough.slice(1).toLowerCase(); // Formata a string
     return this;
   }
 
