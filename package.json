@@ -1,0 +1,30 @@
+{
+  "name": "pizza_builder",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/server.ts",
+    "build": "tsc",
+    "start": "node build/server.js",
+    "vercel-build": "tsc"
+  },
+  "keywords": [],
+  "author": "Eliseu Rodrigues Guimarães",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@vercel/node": "^3.2.25",
+    "body-parser": "^1.20.3",
+    "chalk": "^4.1.2",
+    "express": "^4.21.1"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.5",
+    "@types/chalk": "^2.2.4",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.1",
+    "nodemon": "^3.1.7",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
+  }
+}
